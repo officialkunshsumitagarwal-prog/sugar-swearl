@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse Sugar Swirl's gallery of customized eggless cakes, wedding tiers, theme cakes, and dessert add-ons in Hyderabad."
+    />
+    <title>Sugar Swirl Gallery | Customized Cakes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Sugar Swirl home">
+          <img class="brand-logo" src="assets/Logo.jpeg" alt="Sugar Swirl logo" />
+          <span class="brand-copy">
+            <strong>Sugar Swirl</strong>
+            <small>Your Perfect Choice</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Toggle menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a class="nav-cta" href="customize.html">Cake Builder</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero portfolio-hero">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Gallery</p>
+            <h1>A curated look at Sugar Swirl's floral, romantic, themed, and event-ready work.</h1>
+            <p class="hero-text">
+              This page is for browsing. Save the style you like, then message Sugar Swirl with your event
+              date and reference.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="customize.html">Open Cake Builder</a>
+              <a class="secondary-button" href="contact.html">Open Contact Page</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery section-padding">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Gallery highlights</p>
+            <h2>The visual work should do most of the convincing.</h2>
+          </div>
+
+          <div class="gallery-scroll reveal" data-auto-scroll="gallery">
+            <div class="gallery-columns" id="gallery-columns"></div>
+            <button
+              type="button"
+              class="gallery-audio-toggle"
+              id="gallery-audio-toggle"
+              aria-pressed="false"
+              aria-label="Unmute gallery music"
+              title="Unmute gallery music"
+            >
+              <span class="audio-icon audio-icon-muted" aria-hidden="true">🔇</span>
+              <span class="audio-icon audio-icon-unmuted" aria-hidden="true">🔊</span>
+            </button>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <p>Crafted for Sugar Swirl custom cakes.</p>
+          <p class="footer-note">
+            All products are made using
+            <img
+              class="footer-fssai-logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUWlsV_hyiuvzveFUNTU3FJmmsPg1kYVgACw&s"
+              alt="FSSAI logo"
+            />
+            certified raw material.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="customize.html">Customize</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

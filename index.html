@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sugar Swirl is a Hyderabad-based custom cake studio by Vinati and Aneri, known for eggless desserts, floral finishes, theme cakes, and elegant celebration cakes."
+    />
+    <title>Sugar Swirl | Customized Eggless Cakes in Hyderabad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#home" aria-label="Sugar Swirl home">
+          <img class="brand-logo" src="assets/Logo.jpeg" alt="Sugar Swirl logo" />
+          <span class="brand-copy">
+            <strong>Sugar Swirl</strong>
+            <small>Your Perfect Choice</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Toggle menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a class="nav-cta" href="customize.html">Cake Builder</a>
+        </nav>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Customized eggless cakes by Vinati & Aneri</p>
+            <h1>Simple journey. Beautiful cakes. Direct WhatsApp inquiry.</h1>
+            <p class="hero-text">
+              Browse the gallery, customize your cake step by step, and send the inquiry summary
+              directly to Sugar Swirl on WhatsApp.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="customize.html">Cake Builder</a>
+              <a class="secondary-button" href="portfolio.html">View Gallery</a>
+            </div>
+            <ul class="trust-row" aria-label="Business highlights">
+              <li>Eggless desserts</li>
+              <li>Order 2-3 days prior</li>
+              <li>Hyderabad, India</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual reveal">
+            <article class="hero-card hero-card-main">
+              <div class="hero-logo-shell">
+                <img class="hero-logo-image" src="assets/Logo.jpeg" alt="Sugar Swirl logo" />
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="contact-bar reveal" id="contact-bar">
+          <div>
+            <p class="eyebrow">Customer journey</p>
+            <h2>See the work, customize the cake, send the inquiry.</h2>
+          </div>
+          <div class="contact-bar-actions">
+            <a class="primary-button" href="customize.html">Start Cake Builder</a>
+            <a class="secondary-button" href="portfolio.html">Browse Gallery</a>
+          </div>
+        </section>
+
+        <section class="journey-grid section-padding">
+          <article class="journey-card reveal">
+            <span>01</span>
+            <h3>Browse the work</h3>
+            <p>Open the gallery and get a feel for the visual style before choosing anything.</p>
+            <a class="secondary-button" href="portfolio.html">Open Gallery</a>
+          </article>
+          <article class="journey-card reveal">
+            <span>02</span>
+            <h3>Customize the cake</h3>
+            <p>Choose flavour, occasion, tiers, weight, date, guest count, and contact details step by step.</p>
+            <a class="primary-button" href="customize.html">Customize Now</a>
+          </article>
+          <article class="journey-card reveal">
+            <span>03</span>
+            <h3>Send to WhatsApp</h3>
+            <p>The builder creates a clear inquiry summary and sends it directly to Sugar Swirl.</p>
+            <a class="whatsapp-button" href="contact.html">Quick Contact</a>
+          </article>
+        </section>
+
+        <section class="collection section-padding" id="collection">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Browse by category</p>
+            <h2>Explore the main product categories, then inquire with your reference.</h2>
+            <p>
+              This section is organized the way customers usually order: signature cakes, custom cakes,
+              cookies, and brownies.
+            </p>
+          </div>
+
+          <div class="filter-bar reveal" role="tablist" aria-label="Filter cake categories">
+            <button class="filter-chip active" type="button" data-filter="all">All</button>
+            <button class="filter-chip" type="button" data-filter="signature">Signature Cakes</button>
+            <button class="filter-chip" type="button" data-filter="custom">Custom Cakes</button>
+            <button class="filter-chip" type="button" data-filter="cookies">Cookies</button>
+            <button class="filter-chip" type="button" data-filter="brownies">Brownies</button>
+          </div>
+
+          <div class="cake-grid">
+              <article class="cake-card reveal" data-category="signature">
+                <div class="cake-visual rose-blush"></div>
+                <div class="cake-content">
+                  <p class="cake-type">Signature Cake</p>
+                  <h3>Pure Belgium Cake</h3>
+                  <p>A rich Pure Belgium chocolate cake with a smooth, indulgent finish for customers who love a deeper cocoa flavour.</p>
+                </div>
+              </article>
+
+            <article class="cake-card reveal" data-category="custom">
+              <div class="cake-visual ivory-tier"></div>
+                <div class="cake-content">
+                  <p class="cake-type">Custom Cake</p>
+                  <h3>Ivory Tier Romance</h3>
+                  <p>Clean white tiers with florals, shimmer, toppers, and personalized finishes for weddings and milestone events.</p>
+                </div>
+              </article>
+
+            <article class="cake-card reveal" data-category="cookies">
+              <div class="cake-visual confetti-pop"></div>
+                <div class="cake-content">
+                  <p class="cake-type">Cookies</p>
+                  <h3>NYC Cookie Tin</h3>
+                  <p>Chunky cookie drops and dessert-style cookie boxes that work beautifully as add-ons or standalone orders.</p>
+                </div>
+              </article>
+
+            <article class="cake-card reveal" data-category="brownies">
+              <div class="cake-visual cocoa-luxe"></div>
+                <div class="cake-content">
+                  <p class="cake-type">Brownies</p>
+                  <h3>Fudgy Brownie Box</h3>
+                  <p>Rich, indulgent brownie options for gifting, dessert add-ons, and customers who want more than cake.</p>
+                </div>
+              </article>
+          </div>
+
+          <div class="hero-actions reveal">
+            <a class="primary-button" href="portfolio.html">Open Full Gallery</a>
+            <a class="secondary-button" href="contact.html">Request a Quote</a>
+          </div>
+        </section>
+
+        <section class="instagram-strip reveal">
+          <div class="instagram-copy">
+            <p class="eyebrow">Instagram-first brand</p>
+            <h2>The homepage stays simple because the gallery and cake builder do the deeper work.</h2>
+            <p>Browse on Instagram if you want more visual references, then come back and use the builder.</p>
+          </div>
+          <div class="instagram-actions">
+            <a class="secondary-button" href="https://www.instagram.com/sugar_swirl_/" target="_blank" rel="noreferrer">View Instagram</a>
+            <a class="primary-button" href="customize.html">Go To Cake Builder</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <p>Crafted for Sugar Swirl custom cakes.</p>
+          <p class="footer-note">
+            All products are made using
+            <img
+              class="footer-fssai-logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUWlsV_hyiuvzveFUNTU3FJmmsPg1kYVgACw&s"
+              alt="FSSAI logo"
+            />
+            certified raw material.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="portfolio.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

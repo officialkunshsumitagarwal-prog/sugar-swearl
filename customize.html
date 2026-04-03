@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Customize your Sugar Swirl cake step by step by choosing flavour, occasion, tiers, weight, date, guest count, and contact details."
+    />
+    <title>Cake Builder | Sugar Swirl</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Sugar Swirl home">
+          <img class="brand-logo" src="assets/Logo.jpeg" alt="Sugar Swirl logo" />
+          <span class="brand-copy">
+            <strong>Sugar Swirl</strong>
+            <small>Your Perfect Choice</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Toggle menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a class="nav-cta" href="customize.html">Cake Builder</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero portfolio-hero">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Cake Builder</p>
+            <h1>Build your inquiry step by step, then send the final summary to WhatsApp.</h1>
+            <p class="hero-text">
+              This page replaces the long form. Choose the cake details in order, review the summary, and
+              send it directly to Sugar Swirl.
+            </p>
+          </div>
+
+          <div class="hero-visual reveal">
+            <article class="hero-card hero-card-main">
+              <span class="card-tag">Best order flow</span>
+              <h2>Choose. Review. Send.</h2>
+              <p>Each step is focused so the inquiry feels easier and more organized for the customer.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="customizer section-padding">
+          <div class="customizer-shell reveal" id="cake-customizer">
+            <div class="customizer-progress">
+              <div class="customizer-progress-bar">
+                <span id="customizer-progress-fill"></span>
+              </div>
+              <p id="customizer-step-label">Step 1 of 11</p>
+            </div>
+
+            <form id="customizer-form" class="customizer-form">
+              <section class="builder-step active" data-step="1">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 1</p>
+                  <h2>Your name and contact number</h2>
+                  <p>Start with the basic contact details so the final inquiry summary is complete.</p>
+                </div>
+                <div class="builder-input-grid">
+                  <label class="builder-input-card">
+                    <span>Name</span>
+                    <input type="text" name="customerName" placeholder="Full name" />
+                  </label>
+                  <label class="builder-input-card">
+                    <span>Contact no.</span>
+                    <input type="tel" name="customerPhone" inputmode="numeric" maxlength="10" placeholder="10-digit number" />
+                  </label>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="2">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 2</p>
+                  <h2>Choose the occasion</h2>
+                  <p>Pick the closest occasion so the cake style and final conversation feel more relevant.</p>
+                </div>
+                <div class="option-grid option-grid-four">
+                  <button type="button" class="option-card" data-field="occasion" data-value="Birthday">
+                    <div class="option-art art-birthday"></div>
+                    <h3>Birthday</h3>
+                    <p>For classic celebrations, milestone birthdays, and theme-based birthday cakes.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Anniversary">
+                    <div class="option-art art-anniversary"></div>
+                    <h3>Anniversary</h3>
+                    <p>Soft florals, romantic palettes, and elegant message-led cakes.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Bride To Be">
+                    <div class="option-art art-bride"></div>
+                    <h3>Bride To Be</h3>
+                    <p>Popular for feminine designs, florals, bows, toppers, and gentle pastel styling.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Engagement">
+                    <div class="option-art art-engagement"></div>
+                    <h3>Engagement</h3>
+                    <p>Elegant couple-led cakes and soft luxe celebration styling.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Wedding">
+                    <div class="option-art art-wedding"></div>
+                    <h3>Wedding</h3>
+                    <p>Tiered cakes, refined florals, white-luxe finishes, and polished event styling.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Baby Shower">
+                    <div class="option-art art-baby"></div>
+                    <h3>Baby Shower</h3>
+                    <p>Sweet pastel styling and themed celebration cakes for intimate gatherings.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Kids Theme Party">
+                    <div class="option-art art-kids"></div>
+                    <h3>Kids Theme Party</h3>
+                    <p>Cartoons, characters, jungles, mermaids, cars, and playful custom concepts.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Corporate Party">
+                    <div class="option-art art-corporate"></div>
+                    <h3>Corporate Party</h3>
+                    <p>Elegant celebration cakes or dessert add-ons for brand and office events.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="occasion" data-value="Others">
+                    <div class="option-art art-others"></div>
+                    <h3>Others</h3>
+                    <p>Choose this if your occasion does not fit the listed categories and you want to discuss it directly.</p>
+                  </button>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="3">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 3</p>
+                  <h2>Choose the occasion date</h2>
+                  <p>The date helps confirm availability and whether the lead time is comfortable.</p>
+                </div>
+                <div class="builder-input-shell">
+                  <label class="builder-input-card">
+                    <span>Occasion date</span>
+                    <input type="date" name="eventDate" />
+                  </label>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="4">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 4</p>
+                  <h2>Choose your flavour</h2>
+                  <p>Pick one flavour for the base inquiry. You can discuss combinations later on WhatsApp.</p>
+                </div>
+                <div class="option-grid option-grid-three">
+                  <button type="button" class="option-card" data-field="flavor" data-value="Pure Belgium"><div class="option-art art-belgium"></div><h3>Pure Belgium</h3><p>Rich premium chocolate flavour for customers who want a deeper cocoa profile.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Chocolate Mousse"><div class="option-art art-mousse"></div><h3>Chocolate Mousse</h3><p>Soft and creamy chocolate-led flavour with a lighter indulgent finish.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Black Forest"><div class="option-art art-forest"></div><h3>Black Forest</h3><p>Classic chocolate and cherry-inspired profile for timeless celebration cakes.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Choco Chip"><div class="option-art art-chip"></div><h3>Choco Chip</h3><p>Easy crowd-pleasing option with little chocolate bites throughout.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Pineapple"><div class="option-art art-pineapple"></div><h3>Pineapple</h3><p>Light fruity flavour that works especially well for fresh celebratory cakes.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Mixed Fruit"><div class="option-art art-fruit"></div><h3>Mixed Fruit</h3><p>A softer fruit-forward option for customers who want something refreshing.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Strawberry"><div class="option-art art-strawberry"></div><h3>Strawberry</h3><p>Sweet berry notes that pair beautifully with blush and pastel cake styling.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Blueberry"><div class="option-art art-blueberry"></div><h3>Blueberry</h3><p>Fruit-led flavour with a smooth sweetness and bright finish.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Butterscotch"><div class="option-art art-butterscotch"></div><h3>Butterscotch</h3><p>Warm caramelized sweetness for customers who want a richer classic profile.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Caramel with Roasted Almonds"><div class="option-art art-caramel"></div><h3>Caramel with Roasted Almonds</h3><p>Nutty crunch meets caramel sweetness for a more textured bite.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Rose Pistachio"><div class="option-art art-rose"></div><h3>Rose Pistachio</h3><p>Elegant floral-nut profile that feels premium and occasion-worthy.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Cookies and Cream"><div class="option-art art-cookies"></div><h3>Cookies and Cream</h3><p>Comforting and familiar with cookie notes folded into a creamy profile.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Nutella Ferrero Rocher"><div class="option-art art-nutella"></div><h3>Nutella Ferrero Rocher</h3><p>Hazelnut-chocolate richness for customers who want a luxury dessert flavour.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Chocolate Truffle with Walnuts"><div class="option-art art-walnut"></div><h3>Chocolate Truffle with Walnuts</h3><p>Dense chocolate with walnut texture for a deeper dessert-style profile.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Lotus Biscoff"><div class="option-art art-biscoff"></div><h3>Lotus Biscoff</h3><p>Caramelized biscuit notes that feel trendy, rich, and highly giftable.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Red Velvet"><div class="option-art art-redvelvet"></div><h3>Red Velvet</h3><p>A celebration favorite with a classic indulgent character and visual appeal.</p></button>
+                  <button type="button" class="option-card" data-field="flavor" data-value="Custom"><div class="option-art art-custom-flavor"></div><h3>Custom</h3><p>Choose this if you want multiple flavours in a single cake and would like to discuss the combination directly.</p></button>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="5">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 5</p>
+                  <h2>Choose the cake tier</h2>
+                  <p>This helps Sugar Swirl understand the scale and style direction of your inquiry.</p>
+                </div>
+                <div class="option-grid option-grid-four">
+                  <button type="button" class="option-card" data-field="tier" data-value="Single Tier"><div class="option-art art-tier-1"></div><h3>Single Tier</h3><p>Best for intimate celebrations and smaller custom designs.</p></button>
+                  <button type="button" class="option-card" data-field="tier" data-value="Two Tier"><div class="option-art art-tier-2"></div><h3>Two Tier</h3><p>Balanced option for elegant celebrations and larger guest counts. Minimum weight: 1.5 kg.</p></button>
+                  <button type="button" class="option-card" data-field="tier" data-value="Three Tier"><div class="option-art art-tier-3"></div><h3>Three Tier</h3><p>Ideal for weddings, statement events, and more formal styling. Minimum weight: 5 kg.</p></button>
+                  <button type="button" class="option-card" data-field="tier" data-value="Four or More Tiers"><div class="option-art art-tier-custom"></div><h3>Four or More Tiers</h3><p>Choose this for larger multi-tier builds or unusual structures. Minimum weight: 6 kg.</p></button>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="6">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 6</p>
+                  <h2>Choose the cake weight</h2>
+                  <p>Available weights change automatically based on the tier you selected.</p>
+                </div>
+                <div class="option-grid option-grid-four">
+                  <button type="button" class="option-card" data-field="weight" data-value="0.5 kg" data-weight-kg="0.5"><h3>0.5 kg</h3><p>Good for very small celebrations or add-on orders.</p></button>
+                  <button type="button" class="option-card" data-field="weight" data-value="1 kg" data-weight-kg="1"><h3>1 kg</h3><p>A common starting point for intimate celebrations.</p></button>
+                  <button type="button" class="option-card" data-field="weight" data-value="1.5 kg" data-weight-kg="1.5"><h3>1.5 kg</h3><p>The minimum starting point for most two-tier cakes.</p></button>
+                  <button type="button" class="option-card" data-field="weight" data-value="2 kg" data-weight-kg="2"><h3>2 kg</h3><p>A balanced option for fuller styling and medium celebrations.</p></button>
+                  <button type="button" class="option-card" data-field="weight" data-value="3 kg" data-weight-kg="3"><h3>3 kg</h3><p>Works well for larger celebrations and more decorative detail.</p></button>
+                  <button type="button" class="option-card" data-field="weight" data-value="4 kg" data-weight-kg="4"><h3>4 kg</h3><p>A stronger event-sized option for larger guest counts.</p></button>
+                  <button type="button" class="option-card" data-field="weight" data-value="5 kg" data-weight-kg="5"><h3>5 kg</h3><p>The minimum starting point for standard three-tier cakes.</p></button>
+                  <button type="button" class="option-card" data-field="weight" data-value="6 kg or more" data-weight-kg="6"><h3>6 kg or more</h3><p>The minimum starting point for four or more tiers.</p></button>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="7">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 7</p>
+                  <h2>Add-ons</h2>
+                  <p>Add cookies or brownies if you want extra dessert boxes with the order. Leave any quantity at 0 if you do not want that add-on.</p>
+                </div>
+                <div class="builder-input-grid addon-grid">
+                  <label class="builder-input-card">
+                    <span>Cookies: Pack of 6</span>
+                    <input type="number" name="addonCookiesPack6" min="0" step="1" value="0" />
+                  </label>
+                  <label class="builder-input-card">
+                    <span>Cookies: Cookie Tin</span>
+                    <input type="number" name="addonCookieTin" min="0" step="1" value="0" />
+                  </label>
+                  <label class="builder-input-card">
+                    <span>Brownies: Pack of 6</span>
+                    <input type="number" name="addonBrowniePack6" min="0" step="1" value="0" />
+                  </label>
+                  <label class="builder-input-card">
+                    <span>Brownies: Pack of 8</span>
+                    <input type="number" name="addonBrowniePack8" min="0" step="1" value="0" />
+                  </label>
+                  <label class="builder-input-card">
+                    <span>Brownies: Assorted Pack of 6</span>
+                    <input type="number" name="addonAssortedBrownies6" min="0" step="1" value="0" />
+                  </label>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="8">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 8</p>
+                  <h2>How many guests are you planning for?</h2>
+                  <p>This helps align the cake size and finishing recommendations.</p>
+                </div>
+                <div class="builder-input-shell">
+                  <label class="builder-input-card">
+                    <span>Guest count</span>
+                    <input type="number" name="guestCount" min="1" placeholder="Approximate number of guests" />
+                  </label>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="9">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 9</p>
+                  <h2>Do you have a reference image?</h2>
+                  <p>This is optional. Choose yes if you plan to share a reference image on WhatsApp after the summary opens.</p>
+                </div>
+                <div class="option-grid option-grid-four">
+                  <button type="button" class="option-card" data-field="referenceImage" data-value="Yes">
+                    <div class="option-art art-reference-yes"></div>
+                    <h3>Yes</h3>
+                    <p>I have a reference image and can share it manually on WhatsApp.</p>
+                  </button>
+                  <button type="button" class="option-card" data-field="referenceImage" data-value="No">
+                    <div class="option-art art-reference-no"></div>
+                    <h3>No</h3>
+                    <p>I do not have a reference image and want to discuss the design directly.</p>
+                  </button>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="10">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 10</p>
+                  <h2>Add a note</h2>
+                  <p>Include colors, design ideas, topper text, inspiration, or any custom request.</p>
+                </div>
+                <div class="builder-input-shell">
+                  <label class="builder-input-card">
+                    <span>Note</span>
+                    <textarea name="customerNote" rows="5" placeholder="Mention colors, topper text, theme, message on cake, or any special request."></textarea>
+                  </label>
+                </div>
+              </section>
+
+              <section class="builder-step" data-step="11">
+                <div class="section-heading builder-heading">
+                  <p class="eyebrow">Step 11</p>
+                  <h2>Your inquiry summary</h2>
+                  <p>Review the details below, then send the summary directly to WhatsApp.</p>
+                </div>
+                <div class="summary-card" id="builder-summary"></div>
+              </section>
+
+              <div class="builder-controls">
+                <a
+                  class="whatsapp-button builder-summary-action"
+                  id="builder-whatsapp"
+                  href="https://wa.me/918008503994"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Send Inquiry to WhatsApp</a
+                >
+                <button type="button" class="secondary-button" id="builder-back">Back</button>
+                <button type="button" class="primary-button" id="builder-next">Next</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <p>Crafted for Sugar Swirl custom cakes.</p>
+          <p class="footer-note">
+            All products are made using
+            <img
+              class="footer-fssai-logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUWlsV_hyiuvzveFUNTU3FJmmsPg1kYVgACw&s"
+              alt="FSSAI logo"
+            />
+            certified raw material.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="portfolio.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

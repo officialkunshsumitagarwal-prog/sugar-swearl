@@ -28,10 +28,48 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.18 }
+  { threshold: 0.05, rootMargin: "0px 0px -10% 0px" }
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
+
+const typingTitles = document.querySelectorAll(".typing-title");
+
+const startTyping = (element) => {
+  const fullText = element.dataset.text || element.textContent.trim();
+  if (!fullText) {
+    return;
+  }
+
+  element.textContent = "";
+  let cursor = 0;
+  const typeSpeed = 90;
+
+  const tick = () => {
+    cursor += 1;
+    element.textContent = fullText.slice(0, cursor);
+    if (cursor < fullText.length) {
+      setTimeout(tick, typeSpeed);
+    } else {
+      element.classList.add("typing-complete");
+    }
+  };
+
+  tick();
+};
+
+const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+typingTitles.forEach((element, index) => {
+  if (isReducedMotion) {
+    element.textContent = element.dataset.text || element.textContent.trim();
+    element.classList.add("typing-complete");
+    return;
+  }
+
+  const delay = index * 200 + 100;
+  setTimeout(() => startTyping(element), delay);
+});
 
 const counters = document.querySelectorAll("[data-counter]");
 
@@ -143,10 +181,27 @@ if (quoteEl && nameEl && labelEl) {
 }
 
 const galleryAutoScroll = document.querySelector('[data-auto-scroll="gallery"]');
+const galleryScrollButton = document.querySelector(".scroll-button");
+const galleryTarget = document.getElementById("gallery");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const galleryColumnsRoot = document.getElementById("gallery-columns");
 const galleryAudioToggle = document.getElementById("gallery-audio-toggle");
 let galleryMusic = null;
+
+if (galleryScrollButton && galleryTarget) {
+  galleryScrollButton.addEventListener("click", () => {
+    galleryTarget.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+const aboutScrollButton = document.querySelectorAll(".scroll-button")[1];
+const aboutTarget = document.getElementById("about-content");
+
+if (aboutScrollButton && aboutTarget) {
+  aboutScrollButton.addEventListener("click", () => {
+    aboutTarget.scrollIntoView({ behavior: "smooth" });
+  });
+}
 
 if (galleryColumnsRoot) {
   const imageSources = [
@@ -288,7 +343,11 @@ if (galleryColumnsRoot) {
     "gallery-card-landscape",
   ];
 
-  const columns = [document.createElement("div"), document.createElement("div"), document.createElement("div")];
+  const columns = [
+    document.createElement("div"),
+    document.createElement("div"),
+    document.createElement("div"),
+  ];
 
   columns.forEach((column) => {
     column.className = "gallery-column";
@@ -382,9 +441,7 @@ if (galleryAudioToggle) {
 }
 
 if (galleryAutoScroll && !prefersReducedMotion.matches) {
-  const galleryColumns = Array.from(
-    galleryAutoScroll.querySelectorAll("[data-gallery-column]")
-  );
+  const galleryColumns = Array.from(galleryAutoScroll.querySelectorAll("[data-gallery-column]"));
   let autoScrollFrame = null;
   let pauseUntil = 0;
   let lastFrameTime = 0;
@@ -528,11 +585,10 @@ if (customizer) {
   const summaryEl = document.getElementById("builder-summary");
   const whatsappButton = document.getElementById("builder-whatsapp");
   const builderForm = document.getElementById("customizer-form");
+  const scrollToBuilderButton = document.getElementById("scroll-to-builder");
   const eventDateInput = builderForm?.elements.eventDate;
   const builderControls = customizer.querySelector(".builder-controls");
-  const weightCards = Array.from(
-    customizer.querySelectorAll('.option-card[data-field="weight"]')
-  );
+  const weightCards = Array.from(customizer.querySelectorAll('.option-card[data-field="weight"]'));
 
   const getMinOccasionDate = () => {
     const minDate = new Date();
@@ -648,9 +704,7 @@ if (customizer) {
       return false;
     }
 
-    const matchingCard = weightCards.find(
-      (card) => card.dataset.value === builderState.weight
-    );
+    const matchingCard = weightCards.find((card) => card.dataset.value === builderState.weight);
 
     if (!matchingCard) {
       return false;
@@ -682,15 +736,14 @@ if (customizer) {
     switch (stepIndex) {
       case 0:
         builderState.customerName = builderForm.elements.customerName?.value.trim() || "";
-        builderState.customerPhone =
-          (builderForm.elements.customerPhone?.value || "").replace(/\D/g, "");
+        builderState.customerPhone = (builderForm.elements.customerPhone?.value || "").replace(
+          /\D/g,
+          ""
+        );
         if (builderForm.elements.customerPhone) {
           builderForm.elements.customerPhone.value = builderState.customerPhone;
         }
-        return Boolean(
-          builderState.customerName &&
-            /^\d{10}$/.test(builderState.customerPhone)
-        );
+        return Boolean(builderState.customerName && /^\d{10}$/.test(builderState.customerPhone));
       case 1:
         return Boolean(builderState.occasion);
       case 2:
@@ -711,7 +764,7 @@ if (customizer) {
         return true;
       case 7:
         builderState.guestCount = builderForm.elements.guestCount?.value || "";
-        return Boolean(builderState.guestCount);
+        return true;
       case 8:
         return Boolean(builderState.referenceImage);
       default:
@@ -782,6 +835,13 @@ if (customizer) {
     });
   });
 
+  const scrollCustomizerTop = () => {
+    const header = document.querySelector(".site-header");
+    const headerHeight = header?.offsetHeight || 0;
+    const top = customizer.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   nextButton?.addEventListener("click", () => {
     if (!isStepValid(currentStep)) {
       return;
@@ -790,6 +850,7 @@ if (customizer) {
     if (currentStep < steps.length - 1) {
       currentStep += 1;
       updateStep();
+      scrollCustomizerTop();
     }
   });
 
@@ -797,7 +858,12 @@ if (customizer) {
     if (currentStep > 0) {
       currentStep -= 1;
       updateStep();
+      scrollCustomizerTop();
     }
+  });
+
+  scrollToBuilderButton?.addEventListener("click", () => {
+    scrollCustomizerTop();
   });
 
   updateWeightAvailability();

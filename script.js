@@ -555,7 +555,7 @@ if (galleryAutoScroll && !prefersReducedMotion.matches) {
 const orderForm = document.getElementById("order-form");
 const feedback = document.getElementById("form-feedback");
 const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-const defaultWhatsappNumber = "918008503994";
+const defaultWhatsappNumber = "918790184565";
 
 const buildWhatsappLink = (message, phone = defaultWhatsappNumber) =>
   `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;

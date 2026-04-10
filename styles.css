@@ -240,7 +240,7 @@ img {
   grid-template-columns: 1.1fr 0.9fr;
   gap: clamp(1.5rem, 3vw, 3.5rem);
   align-items: center;
-  min-height: clamp(42rem, 88svh, 52rem);
+  min-height: clamp(28rem, 64svh, 38rem);
   padding: var(--hero-space-top) max(var(--page-gutter), calc((100% - var(--content)) / 2))
     var(--hero-space-bottom);
   background:
@@ -249,22 +249,22 @@ img {
 }
 
 .hero-copy {
-  align-self: start;
+  align-self: center;
 }
 
 .portfolio-hero {
-  min-height: clamp(28rem, 65svh, 38rem);
+  min-height: clamp(22rem, 52svh, 30rem);
 }
 
 .portfolio-hero.cake-builder-hero {
-  min-height: clamp(12rem, 26vh, 20rem);
-  align-items: start;
+  min-height: clamp(12rem, 22vh, 16rem);
+  align-items: center;
   padding-bottom: 1rem;
 }
 
 .portfolio-hero.cake-builder-hero .hero-copy,
 .portfolio-hero.cake-builder-hero .hero-visual {
-  align-self: start;
+  align-self: center;
 }
 
 .portfolio-hero.cake-builder-hero .scroll-container {
@@ -315,7 +315,7 @@ img {
 }
 
 .portfolio-hero.about-hero {
-  min-height: clamp(36rem, 72vh, 44rem);
+  min-height: clamp(24rem, 54svh, 32rem);
   padding-bottom: 5rem;
 }
 
@@ -552,7 +552,7 @@ img {
 
 .hero-visual {
   position: relative;
-  min-height: clamp(25rem, 42vw, 34rem);
+  min-height: clamp(20rem, 30vw, 26rem);
   overflow: visible;
   animation: floatHero 14s ease-in-out infinite;
 }
@@ -2142,7 +2142,7 @@ img {
   }
 
   .hero {
-    min-height: clamp(44rem, 84vh, 56rem);
+    min-height: clamp(30rem, 60vh, 40rem);
   }
 
   .gallery-scroll {
@@ -2157,9 +2157,70 @@ img {
   }
 
   .hero {
-    grid-template-columns: 1fr 0.88fr;
+    grid-template-columns: 1fr;
     gap: clamp(1.25rem, 2.5vw, 2.4rem);
-    min-height: clamp(34rem, 72vh, 44rem);
+    min-height: auto;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero-copy,
+  .section-heading,
+  .builder-heading,
+  .contact-bar,
+  .instagram-copy,
+  .journey-card,
+  .cake-card,
+  .benefit-card,
+  .process-card,
+  .customizer-progress {
+    text-align: center;
+  }
+
+  .hero-copy,
+  .section-heading,
+  .builder-heading,
+  .customizer-progress {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-text,
+  .section-heading p,
+  .brand-notes p,
+  .contact-bar p,
+  .instagram-strip p {
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-visual {
+    min-height: clamp(22rem, 42vw, 28rem);
+    width: min(100%, 36rem);
+  }
+
+  .hero-logo-image {
+    width: min(100%, 22rem);
+  }
+
+  .contact-bar-actions,
+  .hero-actions,
+  .instagram-actions {
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .contact-bar,
+  .instagram-strip,
+  .customizer-shell,
+  .cake-card,
+  .journey-card,
+  .benefit-card,
+  .process-card {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .contact-bar,
@@ -2179,15 +2240,33 @@ img {
   }
 
   .option-grid-four {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .gallery-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 
   .gallery-scroll {
     height: min(38rem, 66vh);
+  }
+
+  .cake-visual {
+    width: min(100%, 24rem);
+    margin: 1rem auto 0;
+  }
+
+  .option-card {
+    justify-items: center;
+    text-align: center;
+    padding: 1.1rem 1rem;
+  }
+
+  .option-art {
+    width: min(100%, 12.5rem);
+    min-height: 8.75rem;
+    margin: 0 auto;
   }
 }
 
@@ -2209,7 +2288,7 @@ img {
   }
 
   .hero-visual {
-    min-height: clamp(20rem, 54vw, 27rem);
+    min-height: clamp(20rem, 56vw, 27rem);
     order: -1;
   }
 
@@ -2224,6 +2303,15 @@ img {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
+  }
+
+  .option-art {
+    width: min(100%, 11rem);
+    min-height: 8rem;
+  }
+
+  .cake-visual {
+    width: min(100%, 22rem);
   }
 
   .site-nav {
@@ -2435,7 +2523,7 @@ img {
   }
 
   .cake-visual {
-    width: min(100%, 18rem);
+    width: min(100%, 21rem);
     margin: 0.95rem auto 0;
     border-radius: 24px;
   }
@@ -2443,12 +2531,12 @@ img {
   .option-card {
     justify-items: center;
     text-align: center;
-    gap: 0.7rem;
+    gap: 0.8rem;
   }
 
   .option-art {
-    width: min(100%, 9rem);
-    min-height: 6.4rem;
+    width: min(100%, 12rem);
+    min-height: 8.4rem;
     margin: 0 auto;
     border-radius: 20px;
   }
@@ -2591,12 +2679,12 @@ img {
   }
 
   .cake-visual {
-    width: min(100%, 16rem);
+    width: min(100%, 18.5rem);
     height: auto;
   }
 
   .option-card {
-    padding: 0.95rem 0.85rem;
+    padding: 1rem 0.95rem;
   }
 
   .option-grid-three,
@@ -2615,8 +2703,8 @@ img {
   }
 
   .option-art {
-    width: min(100%, 8rem);
-    min-height: 5.25rem;
+    width: min(100%, 10.5rem);
+    min-height: 7rem;
   }
 
   .builder-heading {

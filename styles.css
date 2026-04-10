@@ -18,6 +18,7 @@
   --radius-md: 18px;
   --container: min(100%, 100vw);
   --content: min(1360px, calc(100% - 3rem));
+  --page-gutter: clamp(0.9rem, 2.2vw, 1.8rem);
   --section-space: clamp(4rem, 7vw, 6rem);
   --hero-space-top: clamp(2rem, 4vw, 3.5rem);
   --hero-space-bottom: clamp(2rem, 4vw, 3rem);
@@ -37,6 +38,7 @@ body {
   margin: 0;
   font-family: "Manrope", sans-serif;
   color: var(--text);
+  line-height: 1.55;
   min-width: 100%;
   overflow-x: hidden;
   background:
@@ -96,7 +98,7 @@ img {
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
-  padding: 1.2rem max(1.5rem, calc((100% - var(--content)) / 2));
+  padding: 1.2rem max(var(--page-gutter), calc((100% - var(--content)) / 2));
   position: sticky;
   top: 0;
   z-index: 20;
@@ -239,7 +241,7 @@ img {
   gap: clamp(1.5rem, 3vw, 3.5rem);
   align-items: center;
   min-height: clamp(42rem, 88svh, 52rem);
-  padding: var(--hero-space-top) max(1.5rem, calc((100% - var(--content)) / 2))
+  padding: var(--hero-space-top) max(var(--page-gutter), calc((100% - var(--content)) / 2))
     var(--hero-space-bottom);
   background:
     radial-gradient(circle at right top, rgba(248, 200, 220, 0.88), transparent 26%),
@@ -392,12 +394,18 @@ img {
   cursor: pointer;
   background: linear-gradient(135deg, rgba(242, 140, 163, 0.98), rgba(216, 111, 140, 0.95));
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 0;
   box-shadow: 0 18px 30px rgba(210, 95, 120, 0.22);
   transition:
     transform 0.28s ease,
     box-shadow 0.28s ease,
     background-color 0.28s ease;
+}
+
+.scroll-button::before {
+  content: "\2193";
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .scroll-button:hover,
@@ -423,8 +431,11 @@ img {
 .portfolio-hero.cake-builder-hero .scroll-button {
   width: 4rem;
   height: 4rem;
-  font-size: 1.6rem;
   animation: floatButton 2.8s ease-in-out infinite;
+}
+
+.portfolio-hero.cake-builder-hero .scroll-button::before {
+  font-size: 1.6rem;
 }
 
 .primary-button,
@@ -690,7 +701,7 @@ img {
 }
 
 .section-padding {
-  padding: var(--section-space) max(1.5rem, calc((100% - var(--content)) / 2));
+  padding: var(--section-space) max(var(--page-gutter), calc((100% - var(--content)) / 2));
 }
 
 .contact-bar {
@@ -699,7 +710,7 @@ img {
   gap: 1.4rem;
   align-items: center;
   margin: 0 0 2rem;
-  padding: 1.7rem max(1.8rem, calc((100% - var(--content)) / 2));
+  padding: 1.7rem max(var(--page-gutter), calc((100% - var(--content)) / 2));
   border-radius: 0;
   background:
     linear-gradient(135deg, rgba(255, 245, 225, 0.96), rgba(255, 255, 255, 0.9)),
@@ -892,6 +903,24 @@ img {
     background-color 0.22s ease;
 }
 
+.audio-icon {
+  font-size: 0;
+  line-height: 1;
+}
+
+.audio-icon-muted::before,
+.audio-icon-unmuted::before {
+  font-size: 1.2rem;
+}
+
+.audio-icon-muted::before {
+  content: "\1F508";
+}
+
+.audio-icon-unmuted::before {
+  content: "\1F50A";
+}
+
 .gallery-audio-toggle:hover,
 .gallery-audio-toggle:focus-visible {
   transform: translateY(-2px);
@@ -1070,7 +1099,7 @@ img {
   gap: 1.4rem;
   align-items: center;
   margin: 0 0 1.5rem;
-  padding: 1.8rem max(1.8rem, calc((100% - var(--content)) / 2));
+  padding: 1.8rem max(var(--page-gutter), calc((100% - var(--content)) / 2));
   border-radius: 0;
   background:
     linear-gradient(135deg, rgba(255, 245, 225, 0.92), rgba(255, 255, 255, 0.82)),
@@ -1202,6 +1231,15 @@ img {
     linear-gradient(180deg, #fff5e1 0%, #f7ebd8 34%, #fef9f2 75%);
 }
 
+.custom-cake-set {
+  background-image:
+    linear-gradient(180deg, rgba(58, 46, 42, 0.04), rgba(58, 46, 42, 0.1)),
+    url("assets/insta cakes set.jpg");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
 .confetti-pop {
   background:
     radial-gradient(circle at 20% 24%, #f28ca3 0%, transparent 11%),
@@ -1210,10 +1248,28 @@ img {
     linear-gradient(180deg, #fff5e1 0%, #f8c8dc 100%);
 }
 
+.cookie-tin {
+  background-image:
+    linear-gradient(180deg, rgba(58, 46, 42, 0.04), rgba(58, 46, 42, 0.12)),
+    url("assets/insta cookie tin.jpg");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
 .cocoa-luxe {
   background:
     radial-gradient(circle at 50% 18%, #fff2dc 0%, transparent 15%),
     linear-gradient(180deg, #845444 0%, #5a342b 42%, #2a1815 100%);
+}
+
+.assorted-brownies {
+  background-image:
+    linear-gradient(180deg, rgba(58, 46, 42, 0.06), rgba(58, 46, 42, 0.16)),
+    url("assets/brownie pack.jpg");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .cake-content {
@@ -1394,6 +1450,8 @@ img {
 .site-footer {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 1.6rem 0 2.2rem;
   color: var(--muted);
@@ -2076,37 +2134,71 @@ img {
   }
 }
 
-@media (max-width: 980px) {
-  .hero,
-  .contact-bar,
-  .journey-grid,
-  .brand-notes,
-  .order,
-  .process-grid,
-  .cake-grid,
-  .benefit-grid,
-  .stats,
-  .gallery-grid,
-  .instagram-strip,
-  .signature-grid,
-  .option-grid-three,
-  .option-grid-four,
-  .builder-input-grid {
-    grid-template-columns: 1fr;
+/* Large desktop: preserve the composition while giving wide screens more breathing room. */
+@media (min-width: 1500px) {
+  :root {
+    --content: min(1500px, calc(100% - 5rem));
+    --section-space: clamp(4.5rem, 6vw, 7rem);
+  }
+
+  .hero {
+    min-height: clamp(44rem, 84vh, 56rem);
   }
 
   .gallery-scroll {
-    height: auto;
-    overflow: visible;
-    mask-image: none;
+    height: min(48rem, 74vh);
+  }
+}
+
+/* Tablet and small desktop: keep the premium layout, but reduce density more gradually. */
+@media (max-width: 1180px) {
+  :root {
+    --content: min(100% - 2.25rem, 1180px);
   }
 
-  .gallery-audio-toggle {
-    right: 0.75rem;
-    bottom: 0.75rem;
+  .hero {
+    grid-template-columns: 1fr 0.88fr;
+    gap: clamp(1.25rem, 2.5vw, 2.4rem);
+    min-height: clamp(34rem, 72vh, 44rem);
+  }
+
+  .contact-bar,
+  .instagram-strip,
+  .brand-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .cake-grid,
+  .benefit-grid,
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .option-grid-three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .option-grid-four {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .gallery-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-scroll {
+    height: min(38rem, 66vh);
+  }
+}
+
+/* Tablet portrait: stack major regions and simplify actions for touch. */
+@media (max-width: 980px) {
+  .hero,
+  .journey-grid,
+  .order,
+  .stats,
+  .signature-grid,
+  .builder-input-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2117,11 +2209,21 @@ img {
   }
 
   .hero-visual {
-    min-height: clamp(22rem, 70vw, 28rem);
+    min-height: clamp(20rem, 54vw, 27rem);
+    order: -1;
   }
 
   .hero-card-main {
-    inset: 2% 7% 12% 0;
+    inset: 0;
+    padding: clamp(1.35rem, 3vw, 1.8rem);
+  }
+
+  .contact-bar-actions,
+  .hero-actions,
+  .instagram-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
   }
 
   .site-nav {
@@ -2146,9 +2248,11 @@ img {
   }
 }
 
+/* Mobile-first tablet breakpoint: collapse card grids, calm motion, and keep copy readable. */
 @media (max-width: 720px) {
   :root {
     --content: min(100% - 1.2rem, 100%);
+    --page-gutter: 0.75rem;
   }
 
   .site-header {
@@ -2187,15 +2291,18 @@ img {
     gap: 1.25rem;
   }
 
+  .hero-text,
+  .section-heading p,
+  .brand-notes p,
+  .contact-bar p,
+  .instagram-strip p {
+    max-width: 60ch;
+  }
+
   .hero h1,
   .section-heading h2,
   .order-copy h2 {
     line-height: 1;
-  }
-
-  .hero-card-main {
-    inset: 0 0 7rem;
-    padding: 1.35rem;
   }
 
   .hero-logo-image {
@@ -2214,7 +2321,6 @@ img {
     padding-bottom: 1.3rem;
   }
 
-  .gallery-grid,
   .cake-grid,
   .benefit-grid,
   .signature-grid,
@@ -2222,8 +2328,18 @@ img {
   .order,
   .stats,
   .journey-grid,
-  .builder-controls {
+  .builder-controls,
+  .option-grid-three,
+  .option-grid-four,
+  .gallery-columns {
+    grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .contact-bar-actions,
+  .hero-actions,
+  .instagram-actions {
+    grid-template-columns: 1fr;
   }
 
   .builder-controls {
@@ -2252,14 +2368,31 @@ img {
     display: none;
   }
 
+  .gallery-scroll {
+    height: auto;
+    overflow: visible;
+    mask-image: none;
+  }
+
+  .gallery-column {
+    transform: none !important;
+  }
+
+  .gallery-audio-toggle {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
   .site-footer {
     flex-direction: column;
   }
 }
 
+/* Compact mobile polish: larger tap targets, tighter spacing, and calmer hero proportions. */
 @media (max-width: 480px) {
   :root {
     --content: min(100% - 0.8rem, 100%);
+    --page-gutter: 0.5rem;
   }
 
   .site-header {
@@ -2306,11 +2439,6 @@ img {
 
   .hero-copy {
     padding: 0;
-  }
-
-  .hero-card-main {
-    inset: 0 0 6rem;
-    padding: 1rem;
   }
 
   .hero-logo-image {
@@ -2362,7 +2490,7 @@ img {
   }
 
   .hero-visual {
-    min-height: clamp(15rem, 50vw, 20rem);
+    min-height: clamp(14rem, 60vw, 18rem);
   }
 
   .card-tag {

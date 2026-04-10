@@ -344,7 +344,7 @@ if (galleryColumnsRoot) {
   ];
 
   const tabletGalleryQuery = window.matchMedia("(max-width: 980px)");
-  let lastGalleryColumnCount = 0;
+  let lastGalleryMode = "";
 
   const createGalleryCard = (item, index) => {
     const card = document.createElement("article");
@@ -381,26 +381,35 @@ if (galleryColumnsRoot) {
   };
 
   const buildGalleryColumns = () => {
-    const columnCount = tabletGalleryQuery.matches ? 2 : 3;
+    const mode = tabletGalleryQuery.matches ? "grid" : "columns";
 
-    if (columnCount === lastGalleryColumnCount) {
+    if (mode === lastGalleryMode) {
       return;
     }
 
-    lastGalleryColumnCount = columnCount;
+    lastGalleryMode = mode;
 
-    const columns = Array.from({ length: columnCount }, () => {
-      const column = document.createElement("div");
-      column.className = "gallery-column";
-      column.setAttribute("data-gallery-column", "");
-      return column;
-    });
+    if (mode === "grid") {
+      galleryColumnsRoot.classList.add("gallery-columns-mobile");
+      const flatCards = galleryMedia.map((item, index) => createGalleryCard(item, index));
+      galleryColumnsRoot.replaceChildren(...flatCards);
+    } else {
+      galleryColumnsRoot.classList.remove("gallery-columns-mobile");
 
-    galleryMedia.forEach((item, index) => {
-      columns[index % columnCount].append(createGalleryCard(item, index));
-    });
+      const columnCount = 3;
+      const columns = Array.from({ length: columnCount }, () => {
+        const column = document.createElement("div");
+        column.className = "gallery-column";
+        column.setAttribute("data-gallery-column", "");
+        return column;
+      });
 
-    galleryColumnsRoot.replaceChildren(...columns);
+      galleryMedia.forEach((item, index) => {
+        columns[index % columnCount].append(createGalleryCard(item, index));
+      });
+
+      galleryColumnsRoot.replaceChildren(...columns);
+    }
 
     galleryColumnsRoot.querySelectorAll("video").forEach((video) => {
       video.muted = true;
@@ -457,13 +466,12 @@ if (galleryAudioToggle) {
 }
 
 if (galleryAutoScroll && !prefersReducedMotion.matches) {
-  const galleryColumns = Array.from(galleryAutoScroll.querySelectorAll("[data-gallery-column]"));
   const mobileGalleryQuery = window.matchMedia("(max-width: 720px)");
   let autoScrollFrame = null;
   let pauseUntil = 0;
   let lastFrameTime = 0;
   const pixelsPerSecond = 42;
-  const columnState = [];
+  let columnState = [];
 
   const resetGalleryColumns = () => {
     if (autoScrollFrame) {
@@ -472,6 +480,8 @@ if (galleryAutoScroll && !prefersReducedMotion.matches) {
     }
 
     lastFrameTime = 0;
+
+    const galleryColumns = Array.from(galleryAutoScroll.querySelectorAll("[data-gallery-column]"));
 
     galleryColumns.forEach((column) => {
       if (column.dataset.originalMarkup) {
@@ -488,6 +498,9 @@ if (galleryAutoScroll && !prefersReducedMotion.matches) {
       resetGalleryColumns();
       return;
     }
+
+    const galleryColumns = Array.from(galleryAutoScroll.querySelectorAll("[data-gallery-column]"));
+    columnState = [];
 
     galleryColumns.forEach((column, index) => {
       if (!column.dataset.originalMarkup) {

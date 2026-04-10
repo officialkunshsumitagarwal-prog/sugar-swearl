@@ -2453,16 +2453,25 @@ img {
     gap: 1rem;
   }
 
-  .gallery-columns,
-  .gallery-columns.gallery-columns-mobile {
-    display: grid;
+  .gallery-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.8rem;
     align-items: start;
   }
 
+  .gallery-columns.gallery-columns-mobile {
+    display: block;
+    column-count: 2;
+    column-gap: 0.8rem;
+  }
+
   .gallery-columns.gallery-columns-mobile > .gallery-card {
+    display: inline-block;
     width: 100%;
+    margin: 0 0 0.8rem;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .contact-bar-actions,
@@ -2731,7 +2740,11 @@ img {
   }
 
   .gallery-columns.gallery-columns-mobile {
-    gap: 0.55rem;
+    column-gap: 0.55rem;
+  }
+
+  .gallery-columns.gallery-columns-mobile > .gallery-card {
+    margin-bottom: 0.55rem;
   }
 
   .gallery-column {

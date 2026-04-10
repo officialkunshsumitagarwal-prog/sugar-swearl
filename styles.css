@@ -444,6 +444,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.55rem;
   min-height: 3.4rem;
   padding: 0.95rem 1.4rem;
   border-radius: 999px;
@@ -548,6 +549,30 @@ img {
   border: 1px solid rgba(242, 140, 163, 0.16);
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.inline-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.28rem;
+  border-radius: 50%;
+  background: rgba(242, 140, 163, 0.16);
+  color: var(--primary);
+  font-size: 0.72rem;
+  vertical-align: middle;
+}
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .hero-visual {
@@ -1219,7 +1244,7 @@ img {
   background-image:
     linear-gradient(180deg, rgba(58, 46, 42, 0.06), rgba(58, 46, 42, 0.12)),
     url("assets/Signature.jpeg");
-  background-size: cover, contain;
+  background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   background-color: rgba(255, 255, 255, 0.85);
@@ -1461,6 +1486,11 @@ img {
   margin: 0;
 }
 
+.site-footer > div {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .footer-note {
   margin-top: 0.35rem !important;
   font-size: 0.9rem;
@@ -1521,6 +1551,18 @@ img {
 .journey-card span,
 .builder-step .eyebrow {
   display: inline-flex;
+}
+
+.journey-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(242, 140, 163, 0.14);
+  color: var(--primary);
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
 }
 
 .journey-card h3 {

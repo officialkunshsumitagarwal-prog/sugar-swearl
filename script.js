@@ -442,14 +442,46 @@ if (galleryAudioToggle) {
 
 if (galleryAutoScroll && !prefersReducedMotion.matches) {
   const galleryColumns = Array.from(galleryAutoScroll.querySelectorAll("[data-gallery-column]"));
+  const mobileGalleryQuery = window.matchMedia("(max-width: 720px)");
   let autoScrollFrame = null;
   let pauseUntil = 0;
   let lastFrameTime = 0;
   const pixelsPerSecond = 42;
   const columnState = [];
 
+  const resetGalleryColumns = () => {
+    if (autoScrollFrame) {
+      window.cancelAnimationFrame(autoScrollFrame);
+      autoScrollFrame = null;
+    }
+
+    lastFrameTime = 0;
+
+    galleryColumns.forEach((column) => {
+      if (column.dataset.originalMarkup) {
+        column.innerHTML = column.dataset.originalMarkup;
+      }
+
+      column.style.transform = "";
+      delete column.dataset.loopReady;
+    });
+  };
+
   const startGalleryAutoScroll = () => {
+    if (mobileGalleryQuery.matches) {
+      resetGalleryColumns();
+      return;
+    }
+
     galleryColumns.forEach((column, index) => {
+      if (!column.dataset.originalMarkup) {
+        column.dataset.originalMarkup = column.innerHTML;
+      }
+
+      if (column.dataset.loopReady) {
+        column.innerHTML = column.dataset.originalMarkup;
+      }
+
       if (!column.dataset.loopReady) {
         column.insertAdjacentHTML("beforeend", column.innerHTML);
         column.dataset.loopReady = "true";
@@ -506,6 +538,8 @@ if (galleryAutoScroll && !prefersReducedMotion.matches) {
   if (document.readyState === "complete") {
     startGalleryAutoScroll();
   }
+
+  mobileGalleryQuery.addEventListener("change", startGalleryAutoScroll);
 
   galleryAutoScroll.addEventListener("mouseenter", pauseGalleryScroll);
   galleryAutoScroll.addEventListener("touchstart", pauseGalleryScroll, { passive: true });

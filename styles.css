@@ -2291,12 +2291,37 @@ img {
     gap: 1.25rem;
   }
 
+  .hero-copy,
+  .section-heading,
+  .builder-heading,
+  .contact-bar,
+  .instagram-copy,
+  .journey-card,
+  .cake-card,
+  .benefit-card,
+  .process-card,
+  .customizer-progress,
+  .site-footer,
+  .site-footer > div {
+    text-align: center;
+  }
+
+  .section-heading,
+  .builder-heading,
+  .hero-copy,
+  .customizer-progress {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-text,
   .section-heading p,
   .brand-notes p,
   .contact-bar p,
   .instagram-strip p {
-    max-width: 60ch;
+    max-width: 34rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero h1,
@@ -2330,10 +2355,14 @@ img {
   .journey-grid,
   .builder-controls,
   .option-grid-three,
-  .option-grid-four,
-  .gallery-columns {
+  .option-grid-four {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .gallery-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
   }
 
   .contact-bar-actions,
@@ -2372,9 +2401,11 @@ img {
     height: auto;
     overflow: visible;
     mask-image: none;
+    padding-bottom: 4.5rem;
   }
 
   .gallery-column {
+    gap: 0.8rem;
     transform: none !important;
   }
 
@@ -2385,6 +2416,52 @@ img {
 
   .site-footer {
     flex-direction: column;
+  }
+
+  .cake-card,
+  .journey-card,
+  .benefit-card,
+  .process-card,
+  .contact-bar,
+  .instagram-strip,
+  .customizer-shell {
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cake-content {
+    padding: 1.2rem 1.1rem 1.35rem;
+  }
+
+  .cake-visual {
+    width: min(100%, 18rem);
+    margin: 0.95rem auto 0;
+    border-radius: 24px;
+  }
+
+  .option-card {
+    justify-items: center;
+    text-align: center;
+    gap: 0.7rem;
+  }
+
+  .option-art {
+    width: min(100%, 9rem);
+    min-height: 6.4rem;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+
+  .builder-input-card,
+  .builder-input-shell,
+  .summary-card {
+    text-align: center;
+  }
+
+  .builder-input-card input,
+  .builder-input-card textarea {
+    text-align: center;
   }
 }
 
@@ -2422,7 +2499,7 @@ img {
   .hero h1,
   .section-heading h2,
   .order-copy h2 {
-    font-size: clamp(1.8rem, 5vw, 3rem) !important;
+    font-size: clamp(1.55rem, 8vw, 2.4rem) !important;
   }
 
   .hero,
@@ -2430,7 +2507,7 @@ img {
   .contact-bar,
   .instagram-strip,
   .portfolio-hero {
-    padding: 1rem 0.5rem;
+    padding: 0.9rem 0.5rem;
   }
 
   .hero {
@@ -2461,8 +2538,8 @@ img {
 
   .hero-text,
   .section-heading p {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   .hero-actions,
@@ -2510,15 +2587,16 @@ img {
   .journey-card,
   .benefit-card,
   .process-card {
-    padding: 1rem;
+    padding: 0.9rem;
   }
 
   .cake-visual {
-    height: 10rem;
+    width: min(100%, 16rem);
+    height: auto;
   }
 
   .option-card {
-    padding: 0.9rem;
+    padding: 0.95rem 0.85rem;
   }
 
   .option-grid-three,
@@ -2527,16 +2605,18 @@ img {
   }
 
   .option-card h3 {
-    font-size: 1rem;
+    font-size: 0.98rem;
     margin: 0.5rem 0 0.2rem;
   }
 
   .option-card p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
   }
 
   .option-art {
-    height: 4rem;
+    width: min(100%, 8rem);
+    min-height: 5.25rem;
   }
 
   .builder-heading {
@@ -2544,11 +2624,23 @@ img {
   }
 
   .builder-heading h2 {
-    font-size: 1.3rem;
+    font-size: 1.55rem;
   }
 
   .builder-heading p {
     font-size: 0.85rem;
+  }
+
+  .gallery-columns {
+    gap: 0.55rem;
+  }
+
+  .gallery-column {
+    gap: 0.55rem;
+  }
+
+  .gallery-card {
+    border-radius: 22px;
   }
 
   .builder-input-card,

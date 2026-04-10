@@ -343,18 +343,10 @@ if (galleryColumnsRoot) {
     "gallery-card-landscape",
   ];
 
-  const columns = [
-    document.createElement("div"),
-    document.createElement("div"),
-    document.createElement("div"),
-  ];
+  const tabletGalleryQuery = window.matchMedia("(max-width: 980px)");
+  let lastGalleryColumnCount = 0;
 
-  columns.forEach((column) => {
-    column.className = "gallery-column";
-    column.setAttribute("data-gallery-column", "");
-  });
-
-  galleryMedia.forEach((item, index) => {
+  const createGalleryCard = (item, index) => {
     const card = document.createElement("article");
     card.className = `gallery-card ${galleryCardClasses[index % galleryCardClasses.length]}`;
 
@@ -385,22 +377,46 @@ if (galleryColumnsRoot) {
       card.append(image);
     }
 
-    columns[index % columns.length].append(card);
-  });
+    return card;
+  };
 
-  galleryColumnsRoot.replaceChildren(...columns);
+  const buildGalleryColumns = () => {
+    const columnCount = tabletGalleryQuery.matches ? 2 : 3;
 
-  galleryColumnsRoot.querySelectorAll("video").forEach((video) => {
-    video.muted = true;
-    video.defaultMuted = true;
-    video.volume = 0;
-    video.setAttribute("muted", "");
-    video.addEventListener("play", () => {
+    if (columnCount === lastGalleryColumnCount) {
+      return;
+    }
+
+    lastGalleryColumnCount = columnCount;
+
+    const columns = Array.from({ length: columnCount }, () => {
+      const column = document.createElement("div");
+      column.className = "gallery-column";
+      column.setAttribute("data-gallery-column", "");
+      return column;
+    });
+
+    galleryMedia.forEach((item, index) => {
+      columns[index % columnCount].append(createGalleryCard(item, index));
+    });
+
+    galleryColumnsRoot.replaceChildren(...columns);
+
+    galleryColumnsRoot.querySelectorAll("video").forEach((video) => {
       video.muted = true;
       video.defaultMuted = true;
       video.volume = 0;
+      video.setAttribute("muted", "");
+      video.addEventListener("play", () => {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.volume = 0;
+      });
     });
-  });
+  };
+
+  buildGalleryColumns();
+  tabletGalleryQuery.addEventListener("change", buildGalleryColumns);
 }
 
 if (galleryAudioToggle) {

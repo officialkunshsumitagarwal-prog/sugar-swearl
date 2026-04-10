@@ -2314,6 +2314,11 @@ img {
     width: min(100%, 22rem);
   }
 
+  .portfolio-hero.cake-builder-hero .scroll-container,
+  .portfolio-hero.about-hero .scroll-container {
+    display: none;
+  }
+
   .site-nav {
     position: fixed;
     inset: 5.6rem 1rem auto;
@@ -2451,6 +2456,7 @@ img {
   .gallery-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.8rem;
+    align-items: start;
   }
 
   .contact-bar-actions,
